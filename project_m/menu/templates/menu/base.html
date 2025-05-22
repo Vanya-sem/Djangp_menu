@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Древовидное меню Django{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+</head>
+<body>
+    <header>
+        {% block header %}
+            <h1>Тестовое меню</h1>
+        {% endblock %}
+    </header>
+
+    <div class="container">
+        <aside>
+            {% block sidebar %}
+                {% load menu_tag %}
+                {% draw_menu menu_url %}
+            {% endblock %}
+        </aside>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+
+</body>
+</html>
